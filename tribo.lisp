@@ -1,0 +1,23 @@
+(defparameter n1 0)
+(defparameter n2 0)
+(defparameter n3 1)
+(defparameter n4 0)
+(defparameter lst '())
+
+(defun tribo (n)
+  (setq n1 0)
+  (setq n2 0)
+  (setq n3 1)
+  (setq lst '())
+  (setq lst (cons n1 lst))
+  (setq lst (cons n2 lst))
+  (setq lst (cons n3 lst))
+  (loop for x from 4 to n do
+          (setq n4 (+ n1 n2 n3))
+          (setq lst (cons n4 lst))
+          (setq n1 n2)
+          (setq n2 n3)
+          (setq n3 n4))
+  (return-from tribo (reverse lst)))
+
+(print (tribo 10))
